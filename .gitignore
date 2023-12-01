@@ -1,0 +1,42 @@
+# Temporary files
+target/
+
+# Compiled files
+*.class
+
+# Maven build files
+/.mvn/
+/maven-wrapper.jar
+/.classpath
+/.project
+/.settings/
+
+# Eclipse configuration files
+*.classpath
+*.project
+*.settings/
+
+# Log files
+*.log
+
+# Eclipse output files
+bin/
+tmp/
+
+# IntelliJ IDEA configuration files
+.idea/
+
+# Gradle compiled files
+build/
+
+# IDE-generated files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Gradle cache files
+.gradle/
+
+# Visual Studio Code configuration files
+.vscode/
