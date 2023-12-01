@@ -23,6 +23,9 @@ public class UserPg {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+	@Override
+	public String toString() {
+		return "UserPg [id=" + id + ", name=" + name + ", email=" + email + "]";
+	}
 	
 }
