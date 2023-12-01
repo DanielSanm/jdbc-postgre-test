@@ -19,11 +19,10 @@ public class UserPgDAO {
 
 	public void save(UserPg user) {
 		try {
-			String sql = "INSERT INTO user_pg (id, name, email) VALUES (?, ?, ?)";
+			String sql = "INSERT INTO user_pg (name, email) VALUES (?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setLong(1, user.getId());
-			statement.setString(2, user.getName());
-			statement.setString(3, user.getEmail());
+			statement.setString(1, user.getName());
+			statement.setString(2, user.getEmail());
 			statement.execute();
 			connection.commit(); // salva no banco
 		} catch (Exception e) {
@@ -88,5 +87,22 @@ public class UserPgDAO {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void delete(Long id) {
+		try {
+			String sql = "DELETE FROM user_pg WHERE id = " + id;
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.execute();
+			
+			connection.commit();
+		} catch (Exception e) {
+			try {
+				connection.rollback();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+			e.printStackTrace();
+		}
 	}
 }

@@ -14,7 +14,6 @@ public class TestJdbc {
 		UserPgDAO dao = new UserPgDAO();
 		UserPg user = new UserPg();
 		
-		user.setId(5L);
 		user.setName("test");
 		user.setEmail("test@email.com");
 		
@@ -53,6 +52,17 @@ public class TestJdbc {
 			result.setName("Nome atualizado com método update");
 			dao.update(result);
 			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void initDelete() {
+		
+		try {
+			UserPgDAO dao = new UserPgDAO();
+			dao.delete(2L);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
