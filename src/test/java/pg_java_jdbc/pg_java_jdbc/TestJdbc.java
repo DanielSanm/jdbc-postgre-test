@@ -42,4 +42,19 @@ public class TestJdbc {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void initUpdate() {
+		try {
+			
+			UserPgDAO dao = new UserPgDAO();
+			UserPg result = dao.search(4L);
+			
+			result.setName("Nome atualizado com método update");
+			dao.update(result);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
