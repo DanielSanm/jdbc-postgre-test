@@ -5,7 +5,9 @@ import java.util.List;
 import org.junit.Test;
 
 import pg_java_jdbc.pg_java_jdbc.dao.UserPgDAO;
+import pg_java_jdbc.pg_java_jdbc.model.Telephone;
 import pg_java_jdbc.pg_java_jdbc.model.UserPg;
+import pg_java_jdbc.pg_java_jdbc.model.UserPhone;
 
 public class TestJdbc {
 
@@ -66,5 +68,34 @@ public class TestJdbc {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Test
+	public void initAssignTelephone() {
+		UserPgDAO dao = new UserPgDAO();
+		Telephone tel = new Telephone();
+		tel.setNumber("(99) 9999-9999");
+		tel.setType("Home");
+		tel.setUserId(2L);
+		
+		dao.assignTelephone(tel);
+	}
+	
+	@Test
+	public void initListUserPhone() {
+		
+		UserPgDAO dao = new UserPgDAO();
+		
+		List<UserPhone> list = dao.listUserPhone(1L);
+		
+		list.forEach(System.out::println);
+	}
+	
+	@Test
+	public void initDeleteTelephone() {
+		
+		UserPgDAO dao = new UserPgDAO();
+		
+		dao.deleteTelephone(1L);
 	}
 }
